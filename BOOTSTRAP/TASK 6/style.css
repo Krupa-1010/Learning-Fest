@@ -1,0 +1,46 @@
+h4{
+    text-align: center;
+    padding: 15px;
+}
+.container{
+    border:solid 1px grey;
+   
+    width: 700px;  
+
+ }
+.form-group{
+    text-align: center;
+    padding: 20px;
+    font-size: 18px ;
+}
+.text-center{
+    padding: 15px;
+}
+body{
+    margin:20px
+}
+h3{
+    text-align: center;
+}
+.card{
+
+    margin: 0 auto;
+    margin-bottom: 100px;
+    border-style: none;
+    width:300px;
+}
+.card-img-top{
+    padding-top: 20px;
+    height:300px;
+    width:300px;
+}
+.card-text{
+    width:250px
+}
+.container2 {
+    text-align: center;
+    display: block;
+    }    
+    body{
+        margin: 0px;
+    } 
