@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+    <style>
+        body{
+    margin: 0px;
+    padding: 0px ;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+
+}
+.container{
+    padding: 20px;
+    background-color:cadetblue;
+    color: aliceblue;
+
+
+}
+#btn{
+    margin:20px;
+    margin-left: 50px;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    <form onsubmit="return validate()" action="message.html">
+        <h1>Login</h1>
+        <p>Username</p>
+         <input type="text" id="uname" placeholder="username">
+         <p>Password</p>
+         <input type="password" id="pswd" placeholder="password"><br>
+         <input type="submit" placeholder="Submit" id="btn">
+    </form>
+</div>
+<script>
+function validate()
+{
+    user=document.getElementById("uname").value;
+    pass=document.getElementById("pswd").value;
+    if(user.trim()=="" || pass.trim()=="")
+    {
+        alert("Enter valid username or password")
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+</script>
+</body>
+</html>

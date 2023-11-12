@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <link rel="stylesheet" href="style1.css">
+    <style>
+     .container{
+    height: 100vh;
+    margin: 50px;
+    margin-left: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+        }
+        .box{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:center;
+            height:500px;
+            width: 500px;
+            background-color: beige;
+        }
+        .btn{
+            width: 150px;
+            height: 40px;
+            margin: 25px;
+            font-family:'Times New Roman', Times, serif;
+            font-size: medium;
+            background-color:floralwhite;
+            font-weight: bold;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box">
+        <h3 class="head">Enter number 1:</h3>
+        <input type="text" id="n1">
+        <h3 class="head">Enter number 2:</h3>
+        <input type="text" id="n2">
+        <h3 class="head">Sum is :</h3>
+        <h3 id="result"></h3>
+        <button class="btn" onclick="display()">Calculate sum</button>
+        </div>
+    </div>
+    <script>
+    function display(){
+    
+    var fnum=document.getElementById("n1").value;
+    var snum=document.getElementById("n2").value;
+    var total=parseInt(fnum)+ parseInt(snum);
+    document.getElementById("result").innerHTML=total;
+
+}
+    </script>
+</body>
+</html>
