@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/14b0d8abcd.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <h2 class="name">KRUPA ANNA KURUVILLA</h2>
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <i class="fa-solid fa-bars" onlick="openmenu()"></i>
+            </nav>
+            <div class="front">
+            <div class="header-text">
+                <p>Student</p>
+                <h1 class="hero-text">Hi,I am <span>Krupa Anna Kuruvilla</span></h1>
+                <h3 >A Tech Enthusiast</h3>
+            </div>
+            
+        </div>
+    </div>
+
+    </div>
+
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="krupa.jpg">
+                </div>
+
+
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>I am a passionate student currently pursuing a Bachelor's degree in Computer Science Engineering (B.Tech). My academic journey is not just a pursuit of knowledge but a dedicated exploration into the vast world of technology.
+
+                        I am particularly intrigued by the dynamic realm of web development and automation. The art of crafting seamless, user-friendly websites and the potential of automation to streamline processes have captured my imagination. It's not just about writing code for me; it's about creating experiences and efficiencies that can make a tangible impact.As I navigate through the exciting landscape of computer science, my goal is not only to master the intricacies of coding but also to envision and develop solutions that address real-world challenges.</p>
+
+                   <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('education')">Education </p>
+                    </div> 
+                   <div class="tab-contents active-tab" id="skills">
+                    <div class="icons">
+                        <div>
+                        <i class="fa-brands fa-python" style="color: #ffffff;"></i>
+                        <h3><span>python</span></h3>
+                        </div>
+                        <div>
+                        <i class="fa-brands fa-html5" style="color: #ffffff;"></i>
+                        <h3><span>Html</span></h3>
+                        </div>
+                        <div>
+                        <i class="fa-brands fa-css3-alt" style="color: #ffffff;"></i>
+                        <h3><span>CSS</span></h3>
+                        </div>
+                        <div><i class="fa-brands fa-java" style="color: #ffffff;"></i>
+                        <h3><span>Java</span></h3></div>
+                        <div><i class="fa-solid fa-cloud" style="color: #ffffff;"></i>
+                        <h3><span>Cloud Computing</span></h3></div>
+                        <div><i class="fa-solid fa-c" style="color: #ffffff;"></i>
+                        <h3><span>C Programming</span></h3></div>
+                    </div>
+                    </div>
+
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>APJ Abdul Kalam Technological University</span><br>Muthoot Institute of Technology and Science Ernakulam <br>BTech in Computer Science Engineering <br><span>2022-26</span> </li>
+                            <li><span>Higher Secondary Education</span><br> St.Jeromesv HSS Vellayamkudy,Idukki <br>GPA:99.08%</li>
+                            <li><span>Secondary Education</span><br>Central Board of Secondary Education <br>Infant Jesus Residential School Kattappana <br>GPA: 94.6%</li>
+                            
+                        </ul>
+                    </div>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+<div id="achievements">
+    <div class="container">
+        <h1 class="sub-title">Achievements</h1>
+        <div>
+            <div class="achievelist">
+                <div class="achieve">
+                    <img src="bm.png">
+                </div>
+                <div class="achieve">
+                    <img src="hjmm.png">
+                </div>
+                <div class="achieve">
+                    <img src="49.png" class="mm">
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>
+    
+
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-paper-plane"></i>krupaannakuruvilla@gmail.com</p>
+                <p><i class="fa-solid fa-phone" ></i>944678348</p>
+                <a href=""download class="btn"> Download Resume</a>
+            </div>
+            <div class="contact-right">
+                <form>
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button class="btn" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright@ krupaannakuruvilla</p>
+    </div>
+</div>
+    <script>
+        var tablinks=document.getElementsByClassName("tab-links");
+        var tabcontents=document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+
+
+    </script>
+    <script>
+        var sidemenu=document.getElementById("sidemenu");
+
+        function openmenu(){
+            sidemenu.style.right="0";
+        }
+    </script>
+</body>
+</html>
