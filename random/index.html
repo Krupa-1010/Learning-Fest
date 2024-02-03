@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Response</title>
+
+    <link rel="icon" href="nears.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/14b0d8abcd.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style2.css">   
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+
+    <style>
+        #map {
+            height: 70vh; /* Set map height to 70% of the viewport height */
+            width: 80%;   /* Set map width to 80% of the viewport width */
+            margin: 0 auto; /* Center the map horizontally */
+        }
+    </style>
+
+</head>
+<body>
+<!-------------------------------navbar---------------------------------------------------->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <h1>nearsQ<span></span></h1>
+          <!--<a class="navbar-brand" href="#"><span>nearsQ</span></a> -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <a class="navbar-brand" href="#">
+                <img src="nears.jpg" alt="" width="50" height="54">
+              </a>
+            <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" href="#Home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#About">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#Camp Info">Camp Info</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#Guidelines">Guidelines</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#Volunteer">Volunteer</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#Alert">Alert</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#Contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Login/signup">Login/signup</a>
+            </li>
+          </ul>
+      </div>
+      </div>
+  </nav>
+
+<!--------------------------------main--------------------------------------------------------->
+<section class="main">
+    <h2 class="head1">EMERGENCY RESPONSE</h2>
+    <p class="para">If you find yourself in a disaster and require assistance, ease the rescue process by sharing your <br> Click the <b style="color:blue">'Share Location'</b> icon to ensure rescuers can reach you swiftly and provide the help you need</p>
+</section>
+
+<div class="container mt-3">
+    <label for="disasterType">Select Type of Disaster:</label>
+    <select class="form-select" id="disasterType">
+        <option value="earthquake">Earthquake</option>
+        <option value="flood">Flood</option>
+        <option value="fire">Fire</option>
+        <!-- Add more options as needed -->
+    </select>
+</div>
+
+<button class="btn1 mt-3" id="shareLocation">Share Location</button>
+<div id="map"></div>
+
+<script>
+    var map = L.map('map').setView([0, 0], 2); // Set default view
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    var marker;
+
+    document.getElementById('shareLocation').addEventListener('click', function() {
+        var selectedDisasterType = document.getElementById('disasterType').value;
+
+        var name = prompt('Enter your name:');
+        var phoneNumber = prompt('Enter your phone number:');
+
+        if (name && phoneNumber) {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(location) {
+                    var latlng = [location.coords.latitude, location.coords.longitude];
+                    var currentDate = new Date();
+
+                    if (marker) {
+                        marker.setLatLng(latlng);
+                        marker.bindPopup(`<b>${name}</b><br>Phone: ${phoneNumber}<br>Type: ${selectedDisasterType}<br>Reported on: ${currentDate}`).openPopup();
+                    } else {
+                        marker = L.marker(latlng).addTo(map).bindPopup(`<b>${name}</b><br>Phone: ${phoneNumber}<br>Type: ${selectedDisasterType}<br>Reported on: ${currentDate}`).openPopup();
+                    }
+
+                    map.setView(latlng, 16); // Set a higher zoom level, e.g., 16
+                }, function(error) {
+                    console.error('Error getting location:', error.message);
+                    alert('Error getting location. Please make sure location services are enabled.');
+                });
+            } else {
+                alert('Geolocation is not supported by your browser.');
+            }
+        } else {
+            alert('Please provide name and phone number.');
+        }
+    });
+</script>
+</body>
+</html>
