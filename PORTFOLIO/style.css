@@ -169,6 +169,9 @@ nav ul li a:hover::after{
 .tab-contents.active-tab{
     display: block;
 }
+h2{
+    color:#b54769;
+}
 
 /*.................services.........*/
 
@@ -254,7 +257,10 @@ form input,form textarea{
     background: #262626;
     margin-top: 20px;
 }
-
+.link{
+    text-decoration: none;
+    color: #ffff;
+}
 nav.fas{
     display: none;
 }
